@@ -51,15 +51,15 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getPreferences(MODE_PRIVATE);
         updateLocation();
         //shuttleCabs shuttleCab = shuttleCab.get(i);
-//        final Handler handler = new Handler();
-//        final int delay = 1000; //milliseconds
-//        handler.postDelayed(new Runnable(){
-//            public void run(){
-//                updateLocation();
-//                sendLocation();
-//                handler.postDelayed(this, delay);
-//            }
-//        }, delay);
+        final Handler handler = new Handler();
+        final int delay = 300; //milliseconds
+        handler.postDelayed(new Runnable(){
+            public void run(){
+                updateLocation();
+                sendLocation();
+                handler.postDelayed(this, delay);
+            }
+        }, delay);
     }
 
     @Override
