@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     TextView cv;
     String id;
     Location publicLocation = new Location("dummy");
-    private static final String TAG = "MainActivity";
     private FusedLocationProviderClient fusedLocationClient;
     DatabaseReference shuttledb;
     SharedPreferences sharedPreferences;
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-    
+
     public void sendLocation(){
         if (sharedPreferences.getBoolean("firstrun", true)){
             id = shuttledb.push().getKey();
