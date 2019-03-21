@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         updateLocation();
         //shuttleCabs shuttleCab = shuttleCab.get(i);
         final Handler handler = new Handler();
-        final int delay = 300; //milliseconds
+        final int delay = 10000; //milliseconds
         handler.postDelayed(new Runnable(){
             public void run(){
                 updateLocation();
@@ -62,24 +62,24 @@ public class MainActivity extends AppCompatActivity {
         }, delay);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        shuttledb.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot cabSnapshot : dataSnapshot.getChildren()){
-                    shuttleCabs shuttleCab = cabSnapshot.getValue(shuttleCabs.class);
-
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        shuttledb.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                for (DataSnapshot cabSnapshot : dataSnapshot.getChildren()){
+//                    shuttleCabs shuttleCab = cabSnapshot.getValue(shuttleCabs.class);
+//
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
     public void updateLocation(){
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         publicLocation=location;
                     }
                 });
+
     }
 
     public void sendLocation(){
